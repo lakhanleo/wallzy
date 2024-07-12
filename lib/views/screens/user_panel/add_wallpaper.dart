@@ -40,12 +40,11 @@ class _AddWallpaperState extends State<AddWallpaper> {
         "Image" : downloadUrl,
         "Id" : addId,
       };
-      ///loading
-      showDialog(context: context, builder: (context) {
-        return Center(child: Lottie.asset('lib/assets/animations/blue-loader.json'));
-      },);
+
       ///function
       await DatabaseMethods().addWallpaper(addItem, addId, selectedValue!).then((value){
+        ///pop
+        Navigator.of(context).pop();
         final snackBar = SnackBar(
           elevation: 0,
           behavior: SnackBarBehavior.floating,
@@ -61,8 +60,7 @@ class _AddWallpaperState extends State<AddWallpaper> {
           ..hideCurrentSnackBar()
           ..showSnackBar(snackBar);
       });
-      ///pop
-      Navigator.of(context).pop();
+
     }
   }
 
@@ -159,7 +157,15 @@ class _AddWallpaperState extends State<AddWallpaper> {
             verticalSpace(40),
             GestureDetector(
               onTap: () {
+                ///loading
+                showDialog(context: context, builder: (context) {
+                  return Center(
+                      child: Container(
+                    height: 100,width: 100,
+                      child: Lottie.asset('lib/assets/animations/blue-loader.json')));
+                },);
                 uploadItem();
+
               },
               child: Container(
                 padding:

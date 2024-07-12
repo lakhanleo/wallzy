@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:wallzy/views/screens/full_screen.dart';
 
 import '../../models/photo_model.dart';
 
@@ -13,8 +14,13 @@ Widget wallpaper(List<PhotosModel> listPhotos, BuildContext context) {
       mainAxisSpacing: 6.0,
       crossAxisSpacing: 6.0,
       children: listPhotos.map((photosModel) {
-        return GridTile(child: Hero(tag: photosModel.src!.portrait!,
-            child: Container(child: CachedNetworkImage(imageUrl: photosModel.src!.portrait!,fit: BoxFit.cover,),)));
+        return GridTile(child: GestureDetector(
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => FullScreen(imagepath: photosModel.src!.portrait!,),));
+          },
+          child: Hero(tag: photosModel.src!.portrait!,
+              child: Container(child: CachedNetworkImage(imageUrl: photosModel.src!.portrait!,fit: BoxFit.cover,),)),
+        ));
       }).toList(),
     ),
   );

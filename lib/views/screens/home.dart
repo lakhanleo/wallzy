@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:wallzy/Common/CommonWidgets.dart';
+import 'package:wallzy/views/screens/user_panel/login.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -13,7 +14,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   List<String> WallpaperImageList = [
     "lib/assets/images/wallpaper1.jpg",
-    "lib/assets/images/wallpaper2.jpeg",
+    "lib/assets/images/wallpaper2.jpg",
     "lib/assets/images/wallpaper3.png",
     "lib/assets/images/wallpaper4.png",
   ];
@@ -29,15 +30,21 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Colors.white,
         leading: Padding(
           padding: const EdgeInsets.all(10),
-          child: Material(
-            elevation: 5,
-            borderRadius: BorderRadius.circular(60),
-            child: ClipRRect(
+          child: GestureDetector(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) =>
+                UserLogin(),));
+            },
+            child: Material(
+              elevation: 5,
               borderRadius: BorderRadius.circular(60),
-              child: Image.asset(
-                "lib/assets/images/profile_placeholder.png",
-                height: 30,
-                width: 30,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(60),
+                child: Image.asset(
+                  "lib/assets/images/profile_placeholder.png",
+                  height: 30,
+                  width: 30,
+                ),
               ),
             ),
           ),
@@ -80,7 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
             verticalSpace(20),
             Center(
               child: buildIndicator(),
-            )
+            ),
           ],
         ),
       ),

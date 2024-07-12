@@ -1,4 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:wallzy/views/screens/wallpaper.dart';
 
 class CategoriesScreen extends StatefulWidget {
   const CategoriesScreen({super.key});
@@ -31,132 +34,148 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              margin: EdgeInsets.only(left: 10, bottom: 10, right: 10),
-              width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
-                  color: Colors.red, borderRadius: BorderRadius.circular(20)),
-              child: Stack(
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: Image.asset(
-                      "lib/assets/images/wallpaper1.jpg",
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Wallpaper(category: "Wildlife"),));
+              },
+              child: Container(
+                margin: EdgeInsets.only(left: 10, bottom: 10, right: 10),
+                width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
+                child: Stack(
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Image.asset(
+                        "lib/assets/images/wallpaper1.jpg",
+                        width: MediaQuery.of(context).size.width,
+                        height: 200,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    Container(
                       width: MediaQuery.of(context).size.width,
                       height: 200,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: 200,
-                    decoration: BoxDecoration(
-                        color: Colors.black54,
-                        borderRadius: BorderRadius.circular(20)),
-                    child: Align(
-                        alignment: Alignment.bottomCenter,
-                        child: Text(
-                          "Wildlife",
-                          style: TextStyle(color: Colors.white,fontFamily: "Outfit",fontSize: fontSize,fontWeight: FontWeight.w500),
-                        )),
-                  )
-                ],
+                      decoration: BoxDecoration(
+                          color: Colors.black54,
+                          borderRadius: BorderRadius.circular(20)),
+                      child: Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Text(
+                            "Wildlife",
+                            style: TextStyle(color: Colors.white,fontFamily: "Outfit",fontSize: fontSize,fontWeight: FontWeight.w500),
+                          )),
+                    )
+                  ],
+                ),
               ),
             ),
-            Container(
-              margin: EdgeInsets.only(left: 10, bottom: 10, right: 10),
-              width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
-                  color: Colors.red, borderRadius: BorderRadius.circular(20)),
-              child: Stack(
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: Image.asset(
-                      "lib/assets/images/wallpaper2.jpeg",
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Wallpaper(category: "Foods"),));
+              },
+              child: Container(
+                margin: EdgeInsets.only(left: 10, bottom: 10, right: 10),
+                width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
+                child: Stack(
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Image.asset(
+                        "lib/assets/images/wallpaper2.jpg",
+                        width: MediaQuery.of(context).size.width,
+                        height: 200,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    Container(
                       width: MediaQuery.of(context).size.width,
                       height: 200,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: 200,
-                    decoration: BoxDecoration(
-                        color: Colors.black54,
-                        borderRadius: BorderRadius.circular(20)),
-                    child: Align(
-                        alignment: Alignment.bottomCenter,
-                        child: Text(
-                          "Foods",
-                          style: TextStyle(color: Colors.white,fontFamily: "Outfit",fontSize: fontSize,fontWeight: FontWeight.w500),
-                        )),
-                  )
-                ],
+                      decoration: BoxDecoration(
+                          color: Colors.black54,
+                          borderRadius: BorderRadius.circular(20)),
+                      child: Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Text(
+                            "Foods",
+                            style: TextStyle(color: Colors.white,fontFamily: "Outfit",fontSize: fontSize,fontWeight: FontWeight.w500),
+                          )),
+                    )
+                  ],
+                ),
               ),
             ),
-            Container(
-              margin: EdgeInsets.only(left: 10, bottom: 10, right: 10),
-              width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
-                  color: Colors.red, borderRadius: BorderRadius.circular(20)),
-              child: Stack(
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: Image.asset(
-                      "lib/assets/images/wallpaper3.png",
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Wallpaper(category: "Nature"),));
+              },
+              child: Container(
+                margin: EdgeInsets.only(left: 10, bottom: 10, right: 10),
+                width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
+                child: Stack(
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Image.asset(
+                        "lib/assets/images/wallpaper3.png",
+                        width: MediaQuery.of(context).size.width,
+                        height: 200,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    Container(
                       width: MediaQuery.of(context).size.width,
                       height: 200,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: 200,
-                    decoration: BoxDecoration(
-                        color: Colors.black54,
-                        borderRadius: BorderRadius.circular(20)),
-                    child: Align(
-                        alignment: Alignment.bottomCenter,
-                        child: Text(
-                          "Nature",
-                          style: TextStyle(color: Colors.white,fontFamily: "Outfit",fontSize: fontSize,fontWeight: FontWeight.w500),
-                        )),
-                  )
-                ],
+                      decoration: BoxDecoration(
+                          color: Colors.black54,
+                          borderRadius: BorderRadius.circular(20)),
+                      child: Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Text(
+                            "Nature",
+                            style: TextStyle(color: Colors.white,fontFamily: "Outfit",fontSize: fontSize,fontWeight: FontWeight.w500),
+                          )),
+                    )
+                  ],
+                ),
               ),
             ),
-            Container(
-              margin: EdgeInsets.only(left: 10, bottom: 10, right: 10),
-              width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
-                  color: Colors.red, borderRadius: BorderRadius.circular(20)),
-              child: Stack(
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: Image.asset(
-                      "lib/assets/images/wallpaper4.png",
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Wallpaper(category: "City"),));
+              },
+              child: Container(
+                margin: EdgeInsets.only(left: 10, bottom: 10, right: 10),
+                width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
+                child: Stack(
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Image.asset(
+                        "lib/assets/images/wallpaper4.png",
+                        width: MediaQuery.of(context).size.width,
+                        height: 200,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    Container(
                       width: MediaQuery.of(context).size.width,
                       height: 200,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: 200,
-                    decoration: BoxDecoration(
-                        color: Colors.black54,
-                        borderRadius: BorderRadius.circular(20)),
-                    child: Align(
-                        alignment: Alignment.bottomCenter,
-                        child: Text(
-                          "City",
-                          style: TextStyle(color: Colors.white,fontFamily: "Outfit",fontSize: fontSize,fontWeight: FontWeight.w500),
-                        )),
-                  )
-                ],
+                      decoration: BoxDecoration(
+                          color: Colors.black54,
+                          borderRadius: BorderRadius.circular(20)),
+                      child: Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Text(
+                            "City",
+                            style: TextStyle(color: Colors.white,fontFamily: "Outfit",fontSize: fontSize,fontWeight: FontWeight.w500),
+                          )),
+                    )
+                  ],
+                ),
               ),
             ),
           ],
