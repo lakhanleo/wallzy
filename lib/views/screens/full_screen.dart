@@ -46,6 +46,7 @@ class _FullScreenState extends State<FullScreen> {
     Navigator.pop(context);
   }
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
