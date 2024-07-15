@@ -1,12 +1,13 @@
 import 'dart:developer';
 import 'dart:typed_data';
-
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:image_downloader_web/image_downloader_web.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
 
 class FullScreen extends StatefulWidget {
@@ -20,9 +21,14 @@ class FullScreen extends StatefulWidget {
 class _FullScreenState extends State<FullScreen> {
 
   _save() async {
-    var response = await Dio().get(widget.imagepath,
-        options: Options(responseType: ResponseType.bytes));
-    final result = await ImageGallerySaver.saveImage(Uint8List.fromList(response.data));
+    var response = await Dio().get(widget.imagepath, options: Options(responseType: ResponseType.bytes));
+    if (kIsWeb) {
+      // running on the web!
+      await WebImageDownloader.downloadImageFromWeb(widget.imagepath, name: 'image01', imageType: ImageType.png,);
+    } else {
+      // NOT running on the web! You can check for additional platforms here.
+      final result = await ImageGallerySaver.saveImage(Uint8List.fromList(response.data));
+    }
     final snackBar = SnackBar(
       elevation: 0,
       behavior: SnackBarBehavior.floating,
@@ -51,7 +57,7 @@ class _FullScreenState extends State<FullScreen> {
             height: MediaQuery.of(context).size.height,
             child: CachedNetworkImage(imageUrl: widget.imagepath,fit: BoxFit.cover,),
           )),
-          ///set wallpaper
+          ///download wallpaper
           Positioned(
             bottom: 130,right: 15,
             child: GestureDetector(

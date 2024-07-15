@@ -8,7 +8,7 @@ import 'package:http/http.dart' as http;
 import 'package:lottie/lottie.dart';
 import 'package:wallzy/Common/CommonWidgets.dart';
 import 'package:wallzy/views/components/widget.dart';
-
+import 'package:image_downloader_web/image_downloader_web.dart';
 import '../../models/photo_model.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -112,7 +112,7 @@ class _SearchScreenState extends State<SearchScreen> {
               ),
             ),
             verticalSpace(20),
-            Expanded(child: wallpaper(photos, context))
+            Expanded(child: wallpaper(photos.reversed.toList(), context))
           ],
         ),
       ),
